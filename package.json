@@ -9,11 +9,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.100.0",
+    "@aws-sdk/client-s3": "^3.109.0",
     "body-parser": "^1.20.0",
+    "cjs": "^0.0.11",
+    "connect-dynamodb": "^2.0.4",
     "crypto": "^1.0.1",
     "ejs": "^3.1.8",
     "express": "^4.18.1",
+    "express-session": "^1.17.3",
     "mysql": "^2.18.1"
   }
 }
