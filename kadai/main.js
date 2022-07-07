@@ -3,6 +3,7 @@ const session = require('express-session')
 const bodyParser = require('body-parser')
 const auth = require('./controller/auth')
 const login = require('./controller/login')
+const top = require('./controller/top')
 const download = require('./controller/download')
 const DynamoDBStore = require('connect-dynamodb')({ session: session })
 
@@ -26,14 +27,12 @@ app.use('/', session({
 
 app.set('view engine', 'ejs')
 
-app.get('/', auth, (req, res) => {
-  const user = req.session.user
-  res.render('top.ejs', { name: user.name })
-})
+
+app.get('/', auth, top)
 
 app.post('/login', login)
 
-app.get('/download', download)
+app.get('/download', auth, download)
 
 app.listen(8080, (err) => {
   if (err) throw err
